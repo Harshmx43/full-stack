@@ -40,5 +40,3 @@ This web application allows users to register, login securely, create courses, e
 
 ---
 
-## 🗂 Project Structure
-
