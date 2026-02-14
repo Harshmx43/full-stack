@@ -1,0 +1,45 @@
+{% extends "base_dashboard.html" %}
+{% block content %}
+
+<div class="row">
+
+    <!-- Add Course -->
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <h5>Add Course</h5>
+            <form method="POST" action="{{ url_for('add_course') }}">
+                <input type="text" name="title" class="form-control mb-2" placeholder="Course Title" required>
+                <textarea name="description" class="form-control mb-2" placeholder="Description" required></textarea>
+                <button class="btn btn-primary w-100">Add Course</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Course List -->
+    <div class="col-md-8">
+        <div class="card p-3 shadow-sm">
+            <h5>Your Courses</h5>
+
+            {% for course in courses %}
+            <div class="border rounded p-3 mb-3">
+                <h6>{{ course[1] }}</h6>
+                <p>{{ course[2] }}</p>
+
+                <div class="d-flex gap-2">
+                    <form method="POST" action="{{ url_for('enroll', course_id=course[0]) }}" class="d-flex gap-2">
+                        <input type="text" name="student_name" class="form-control" placeholder="Student Name" required>
+                        <button class="btn btn-success btn-sm">Enroll</button>
+                    </form>
+
+                    <a href="{{ url_for('delete_course', course_id=course[0]) }}"
+                       class="btn btn-danger btn-sm">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

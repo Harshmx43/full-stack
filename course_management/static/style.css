@@ -1,0 +1,49 @@
+body {
+    transition: 0.3s ease;
+}
+
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #212529;
+    color: white;
+}
+
+.sidebar .nav-link {
+    color: white;
+    margin: 10px 0;
+}
+
+.sidebar .nav-link:hover {
+    background: #343a40;
+    padding-left: 10px;
+    transition: 0.2s;
+}
+
+.main-content {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+body.dark-mode .main-content {
+    background: #1e1e1e;
+}
+
+body.dark-mode .navbar {
+    background: #2a2a2a !important;
+}
+
+body.dark-mode .card {
+    background: #2c2c2c;
+    color: white;
+}
+
+body.dark-mode .sidebar {
+    background: #000;
+}
